@@ -18,6 +18,29 @@ void main() {
 class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Row(
+        children: [
+          Expanded(
+            child: TextButton(
+                onPressed: () {
+                  print("First image was clicked.");
+                },
+                child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Image.asset('images/dice1.png'))),
+          ),
+          Expanded(
+            child: TextButton(
+                onPressed: () {
+                  print("Second image was clicked.");
+                },
+                child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Image.asset('images/dice2.png'))),
+          ),
+        ],
+      ),
+    );
   }
 }
