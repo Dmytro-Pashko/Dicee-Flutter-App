@@ -1,6 +1,12 @@
-# flutter_dicee_app
+# Flutter StatefulWidget simple app.
 
 Simple Mobile app that implemented in a part of the Complete 2021 Flutter Development Bootcamp with Dart (https://www.udemy.com/course/flutter-bootcamp-with-dart/)
+
+
+![Dice](https://raw.githubusercontent.com/Dmytro-Pashko/Dicee-Flutter-App/master/git_description/dice.gif)
+
+![Magic8Ball](https://raw.githubusercontent.com/Dmytro-Pashko/Dicee-Flutter-App/master/git_description/8ball.gif)
+
 
 ## Getting Started
 
