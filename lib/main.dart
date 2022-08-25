@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,16 +8,40 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.red,
         appBar: AppBar(
-          title: Text('Dicee'),
+          title: const Text('Dicee'),
           backgroundColor: Colors.red,
         ),
-        body: DicePage(),
+        body: const DicePageWidget(),
       ),
     ),
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePageWidget extends StatefulWidget {
+  const DicePageWidget({Key? key}) : super(key: key);
+
+  @override
+  State<DicePageWidget> createState() => _DicePageWidgetState();
+}
+
+class _DicePageWidgetState extends State<DicePageWidget> {
+  static Random randGen = Random();
+
+  /// Generates integer number [1..6]
+  static int getRandomDiceNumber() {
+    return randGen.nextInt(5) + 1;
+  }
+
+  int leftDiceNumber = getRandomDiceNumber();
+  int rightDiceNumber = getRandomDiceNumber();
+
+  void generateNewDices() {
+    setState(() {
+      leftDiceNumber = getRandomDiceNumber();
+      rightDiceNumber = getRandomDiceNumber();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -24,20 +50,20 @@ class DicePage extends StatelessWidget {
           Expanded(
             child: TextButton(
                 onPressed: () {
-                  print("First image was clicked.");
+                  generateNewDices();
                 },
                 child: Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Image.asset('images/dice1.png'))),
+                    child: Image.asset('images/dice$leftDiceNumber.png'))),
           ),
           Expanded(
             child: TextButton(
                 onPressed: () {
-                  print("Second image was clicked.");
+                  generateNewDices();
                 },
                 child: Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Image.asset('images/dice2.png'))),
+                    child: Image.asset('images/dice$rightDiceNumber.png'))),
           ),
         ],
       ),
